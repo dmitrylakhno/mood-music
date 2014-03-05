@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+    div.col-lg-4.middle
+
+        if user
+
+            form.middle-man.form-inline(role='form', id='form', method='POST', action='/')
+                    div.input-group
+                        input.form-control(type='text', name='mood', id='mood', placeholder='Enter your mood, e.g.: \'happy\'', value='#{mood}', autofocus)
+                        input(type='hidden', name='_csrf', value=token)
+                        span.input-group-btn
+                            button.btn.btn-default(type='button' id='getmood')
+                                i.fa.fa-music
+
+                audio(autoplay='autoplay' hidden, preload)
+
+        else
+
+            a(href='/auth/vkontakte')
+                button.btn.btn-primary.btn-lg(type="button")
+                    i.fa.fa-vk
+                    | Login with VK

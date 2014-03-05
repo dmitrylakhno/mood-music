@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .page-header
+    h2
+      i.fa.fa-music
+      | Sad mood
+
+  ul.list-unstyled
+    for song in songs
+      li
+        | #{song.artist.name} - #{song.name}
